@@ -23,7 +23,7 @@ try:
             with open('config.env', 'wb+') as f:
                 f.write(res.content)
         else:
-            log_error(f"Failed to download config.env {res.status_code}")
+            log_error(f"Failed to load config.env {res.status_code}")
     except Exception as e:
         log_error(f"CONFIG_FILE_URL: {e}")
 except:
@@ -65,3 +65,4 @@ else:
     log_error('Something went wrong while updating, check UPSTREAM_REPO if valid or not!')
     log_info(f'Entered Upstream Repo: {UPSTREAM_REPO}')
     log_info(f'Entered Upstream Branch: {UPSTREAM_BRANCH}')
+
