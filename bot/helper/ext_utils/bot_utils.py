@@ -32,20 +32,20 @@ class MirrorStatus:
     STATUS_SEEDING = "Seeding"
 
 class EngineStatus:
-    STATUS_ARIA = "Aria2p"
-    STATUS_GD = "Google Api"
-    STATUS_MEGA = "Mega Api"
-    STATUS_QB = "Bittorrent"
-    STATUS_TG = "Pyrogram"
-    STATUS_YT = "YT-dlp"
-    STATUS_EXT = "pExtract"
-    STATUS_SPLIT = "FFmpeg"
-    STATUS_ZIP = "p7zip"
+    STATUS_ARIA = "Aria2c v1.36.0"
+    STATUS_GD = "Google Api v2.78.0"
+    STATUS_MEGA = "MegaSDK v4.8.0"
+    STATUS_QB = "qBittorrent v4.3.9"
+    STATUS_TG = "pyrogram v2.0.66"
+    STATUS_YT = "yt-dlp v2023.2.17"
+    STATUS_EXT = "7z"
+    STATUS_SPLIT = "ffmpeg/split"
+    STATUS_ZIP = "7z"
 
 SIZE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
 
-PROGRESS_MAX_SIZE = 100 // 8
-PROGRESS_INCOMPLETE = ['▁', '▂', '▃', '▄', '▅', '▆', '▇']
+PROGRESS_MAX_SIZE = 100 // 9
+PROGRESS_INCOMPLETE = ['◔', '◔', '◑', '◑', '◑', '◕', '◕']
 
 class setInterval:
     def __init__(self, interval, action):
@@ -127,16 +127,16 @@ def get_progress_bar_string(status):
     p = min(max(p, 0), 100)
     cFull = p // 8
     cPart = p % 8 - 1
-    p_str = '█' * cFull
+    p_str = '⬤' * cFull
     if cPart >= 0:
         p_str += PROGRESS_INCOMPLETE[cPart]
-    p_str += '▁' * (PROGRESS_MAX_SIZE - cFull)
+    p_str += '○' * (PROGRESS_MAX_SIZE - cFull)
     p_str = f"{p_str}"
     return p_str
 
 def progress_bar(percentage):
-    p_used = '⛊'
-    p_total = '⛉'
+    p_used = '⬢'
+    p_total = '⬡'
     if isinstance(percentage, str):
         return 'NaN'
     try:
