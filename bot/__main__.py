@@ -188,6 +188,10 @@ def bot_help(update, context):
     sendMessage(help_string, context.bot, update.message)
 
 def main():
+    if ospath.exists('.git'):
+        botVersion = check_output(["git log -1 --date=format:v%y.%m%d.%H%M --pretty=format:%cd"], shell=True).decode()
+    else:
+        botVersion = 'No UPSTREAM_REPO'
     start_cleanup()
     notifier_dict = False
     if INCOMPLETE_TASK_NOTIFIER and DB_URI is not None:
