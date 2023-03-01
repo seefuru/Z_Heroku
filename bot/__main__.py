@@ -24,10 +24,8 @@ def stats(update, context):
     swap_p = swap.percent
     if ospath.exists('.git'):
         last_commit = check_output(["git log -1 --date=short --pretty=format:'%cd <b>\nFrom</b>: %cr'"], shell=True).decode()
-        botVersion = check_output(["git log -1 --date=format:v%y.%m%d.%H%M --pretty=format:%cd"], shell=True).decode()
     else:
         last_commit = 'No UPSTREAM_REPO'
-        botVersion = 'No UPSTREAM_REPO'
     stats = f'<b>Last Commit</b>: {last_commit}\n\n'\
             f'<b>Bot Uptime</b>: {get_readable_time(time() - botStartTime)}\n'\
             f'<b>OS Uptime</b>: {get_readable_time(time() - boot_time())}\n\n'\
@@ -188,10 +186,6 @@ def bot_help(update, context):
     sendMessage(help_string, context.bot, update.message)
 
 def main():
-    if ospath.exists('.git'):
-        botVersion = check_output(["git log -1 --date=format:v%y.%m%d.%H%M --pretty=format:%cd"], shell=True).decode()
-    else:
-        botVersion = 'No UPSTREAM_REPO'
     start_cleanup()
     notifier_dict = False
     if INCOMPLETE_TASK_NOTIFIER and DB_URI is not None:
@@ -200,10 +194,10 @@ def main():
                 if ospath.isfile(".restartmsg"):
                     with open(".restartmsg") as f:
                         chat_id, msg_id = map(int, f)
-                    msg = "#Restarted" \
+                    msg = f"#Restarted" \
                           f"\n<b>Version: </b>{botVersion}" 
                 else:
-                    msg = "#Restarted" \
+                    msg = f"#Restarted" \
                           f"\n<b>Version: </b>{botVersion}" \
                           f"\n\n<b>Mirror your links again:</b>"  
                 for tag, links in data.items():
@@ -232,12 +226,12 @@ def main():
     if ospath.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        bot.edit_message_text("Restarted Successfully!", chat_id, msg_id)
+        bot.edit_message_text(f"#Restarted\n<b>Version: </b>{botVersion}\n", chat_id, msg_id)
         osremove(".restartmsg")
     elif not notifier_dict and AUTHORIZED_CHATS:
         for id_ in AUTHORIZED_CHATS:
             try:
-                bot.sendMessage(id_, "Bot Restarted!", 'HTML')
+                bot.sendMessage(id_, f"#Restarted\n<b>Version: </b>{botVersion}\n", 'HTML')
             except Exception as e:
                 LOGGER.error(e)
 

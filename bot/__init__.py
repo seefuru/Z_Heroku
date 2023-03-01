@@ -78,6 +78,7 @@ Interval = []
 DRIVES_NAMES = []
 DRIVES_IDS = []
 INDEX_URLS = []
+botVersion = check_output(["git log -1 --date=format:v%y.%m%d.%H%M --pretty=format:%cd"], shell=True).decode()
 
 try:
     if bool(getConfig('_____REMOVE_THIS_LINE_____')):
