@@ -235,7 +235,7 @@ function s_validate() {
         </a>
       </div>
       <div class="social">
-        <a href="https://github.com/rkshaju8"><i class="fab fa-github"></i></a>
+        <a href="https://mirrorbd.one"><i class="fab fa-github"></i></a>
         <a href="https://t.me/mirror_24x7_updates"><i class="fab fa-telegram"></i></a>
       </div>
     </header>
@@ -627,7 +627,7 @@ section span{
         </a>
       </div>
       <div class="social">
-        <a href="https://github.com/rkshaju8"><i class="fab fa-github"></i></a>
+        <a href="https://mirrorbd.one"><i class="fab fa-github"></i></a>
         <a href="https://t.me/mirror_24x7_updates"><i class="fab fa-telegram"></i></a>
       </div>
     </header>
@@ -799,7 +799,7 @@ def status():
     }
 @app.route('/')
 def homepage():
-    return "<h1>See 24x7 MLTB <a href='https://github.com/rkshaju8'>@GitHub</a> By <a href='https://t.me/rk_shaju'>@rk_shaju</a></h1>"
+    return "<h1>See mirrorbd <a href='https://mirrorbd.one'>@GitHub</a> By <a href='https://mirrorbd.one'>@saionni</a></h1>"
 
 @app.errorhandler(Exception)
 def page_not_found(e):
