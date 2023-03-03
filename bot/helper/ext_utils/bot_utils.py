@@ -367,7 +367,7 @@ def bot_sys_stats():
         if stats.status() == MirrorStatus.STATUS_SPLITTING:
             num_split += 1
     return f"""
-Powered By 24x7 ML\n
+Powered By 24x7 MLTB\n
 C-{cpu}% | R-{mem}% | D-{disk}%\n
 SEND: {sent} | RECV: {recv} \nDONE: {get_readable_file_size(dsize)}\n
 DL: {num_active} | UP: {num_upload} | SPLIT: {num_split}

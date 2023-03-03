@@ -552,13 +552,6 @@ try:
 except KeyError:
     SOURCE_LINK = False
 try:
-    TITLE_NAME = getConfig('TITLE_NAME')
-    if len(TITLE_NAME) == 0:
-        TITLE_NAME = 'mirrorbd'
-except KeyError:
-    log_info('TITLE_NAME not entered; using mirrorbd')
-    TITLE_NAME = 'mirrorbd'
-try:
     AUTO_DELETE_UPLOAD_MESSAGE_DURATION = int(getConfig('AUTO_DELETE_UPLOAD_MESSAGE_DURATION'))
 except KeyError:
     AUTO_DELETE_UPLOAD_MESSAGE_DURATION = -1

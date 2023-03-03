@@ -75,7 +75,7 @@ class QbDownloader:
                             return deleteMessage(self.__listener.bot, meta)
                 self.client.torrents_pause(torrent_hashes=self.ext_hash)
                 SBUTTONS = bt_selection_buttons(self.ext_hash)
-                msg = "Your download paused. Choose files then press Done Selecting button to start downloading."
+                msg = f"<b>Name</b>: <code>{tor_info.name}</code>\n\nYour download paused. Choose files then press Done Selecting button to start downloading.\n<b><i>Your download will not start automatically</i></b>"
                 sendMarkup(msg, self.__listener.bot, self.__listener.message, SBUTTONS)
             else:
                 sendStatusMessage(self.__listener.message, self.__listener.bot)

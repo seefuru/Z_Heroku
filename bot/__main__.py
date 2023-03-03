@@ -226,7 +226,7 @@ def main():
     if ospath.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        bot.edit_message_text(f"#Restarted\n<b>Version: </b>{botVersion}\n", chat_id, msg_id)
+        bot.edit_message_text('Restarted Successfully!', chat_id, msg_id)
         osremove(".restartmsg")
     elif not notifier_dict and AUTHORIZED_CHATS:
         for id_ in AUTHORIZED_CHATS:
