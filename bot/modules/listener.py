@@ -240,6 +240,8 @@ class MirrorLeechListener:
             reply_to = self.message.reply_to_message
             if reply_to is not None and AUTO_DELETE_UPLOAD_MESSAGE_DURATION == -1:
                 reply_to.delete()
+            else:
+                pass
 
         if SHORTENER:
             msg = f'<b>Name</b>: <code>.{escape(name).replace(" ", "-").replace(".", ",")}</code>\n\n<b>Size: </b>{size}'
