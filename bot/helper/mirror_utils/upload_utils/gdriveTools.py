@@ -576,88 +576,6 @@ class GoogleDriveHelper:
             return {'files': []}
 
     def drive_list(self, fileName, stopDup=False, noMulti=False, isRecursive=True, itemType=""):
-        if HTML:
-            msg = ""
-            fileName = self.__escapes(str(fileName))
-            contents_count = 0
-            Title = False
-            if len(DRIVES_IDS) > 1:
-                token_service = self.__alt_authorize()
-                if token_service is not None:
-                    self.__service = token_service
-            for index, parent_id in enumerate(DRIVES_IDS):
-                isRecur = False if isRecursive and len(parent_id) > 23 else isRecursive
-                response = self.__drive_query(parent_id, fileName, stopDup, isRecur, itemType)
-                if not response["files"]:
-                    if noMulti:
-                        break
-                    else:
-                        continue
-                if not Title:
-                    msg += '<span class="container center rfontsize">' \
-                        f'<h4>Search Result For {fileName}</h4></span>'
-                    Title = True
-                if len(DRIVES_NAMES) > 1 and DRIVES_NAMES[index] is not None:
-                    msg += '<span class="container center rfontsize">' \
-                        f'<b>{DRIVES_NAMES[index]}</b></span>'
-                for file in response.get('files', []):
-                    mime_type = file.get('mimeType')
-                    if mime_type == "application/vnd.google-apps.folder":
-                        furl = f"https://drive.google.com/drive/folders/{file.get('id')}"
-                        furl = short_url(furl)
-                        msg += '<span class="container start rfontsize">' \
-                            f"<div>📁 {file.get('name')} (folder)</div>" \
-                            '<div class="dlinks">' \
-                            f'<span> <a class="forhover" href="{furl}">Drive Link</a></span>'
-                        if INDEX_URLS[index] is not None:
-                            if isRecur:
-                                url_path = "/".join([rquote(n, safe='') for n in self.__get_recursive_list(file, parent_id)])
-                            else:
-                                url_path = rquote(f'{file.get("name")}', safe='')
-                            url = f'{INDEX_URLS[index]}/{url_path}/'
-                            url = short_url(url)
-                            msg += '<span> | </span>' \
-                                f'<span> <a class="forhover" href="{url}">Index Link</a></span>'
-                    elif mime_type == 'application/vnd.google-apps.shortcut':
-                        furl = f"https://drive.google.com/drive/folders/{file.get('id')}"
-                        furl = short_url(furl)
-                        msg += '<span class="container start rfontsize">' \
-                            f"<div>📁 {file.get('name')} (shortcut)</div>" \
-                            '<div class="dlinks">' \
-                            f'<span> <a class="forhover" href="{furl}">Drive Link</a></span>'\
-                            '</div></span>'
-                    else:
-                        furl = f"https://drive.google.com/uc?id={file.get('id')}&export=download"
-                        furl = short_url(furl)
-                        msg += '<span class="container start rfontsize">' \
-                            f"<div>📄 {file.get('name')} ({get_readable_file_size(int(file.get('size', 0)))})</div>" \
-                            '<div class="dlinks">' \
-                            f'<span> <a class="forhover" href="{furl}">Drive Link</a></span>'
-                        if INDEX_URLS[index] is not None:
-                            if isRecur:
-                                url_path = "/".join(rquote(n, safe='') for n in self.__get_recursive_list(file, parent_id))
-                            else:
-                                url_path = rquote(f'{file.get("name")}')
-                            url = f'{INDEX_URLS[index]}/{url_path}'
-                            url = short_url(url)
-                            msg += '<span> | </span>' \
-                                f'<span> <a class="forhover" href="{url}">Index Link</a></span>'
-                            if VIEW_LINK:
-                                urlv = f'{INDEX_URLS[index]}/{url_path}?a=view'
-                                urlv = short_url(urlv)
-                                msg += '<span> | </span>' \
-                                    f'<span> <a class="forhover" href="{urlv}">View Link</a></span>'
-                    msg += '</div></span>'
-                    contents_count += 1
-                if noMulti:
-                    break
-            if contents_count == 0:
-                return "", ""
-            cap = f"<b>Found {contents_count} result for <i>{fileName}</i></b>"
-            f_name = f'{fileName}_{time()}.html'
-            with open(f_name, 'w', encoding='utf-8') as f:
-                f.write(hmtl_content.replace('{fileName}', fileName).replace('{msg}', msg))
-            return cap, f_name
         msg = ""
         fileName = self.__escapes(str(fileName))
         contents_count = 0
@@ -685,7 +603,7 @@ class GoogleDriveHelper:
                 mime_type = file.get('mimeType')
                 if mime_type == "application/vnd.google-apps.folder":
                     furl = f"https://drive.google.com/drive/folders/{file.get('id')}"
-                    msg += f"📁 <code>{file.get('name')}<br>(folder)</code><br>"
+                    msg += f"📁| <code>{file.get('name')}<br>(folder)</code><br>"
                     furl = short_url(furl)
                     if not DISABLE_DRIVE_LINK:
                         msg += f"<b><a href={furl}>Drive Link</a></b>"
@@ -703,7 +621,7 @@ class GoogleDriveHelper:
                     # Excluded index link as indexes cant download or open these shortcuts
                 else:
                     furl = f"https://drive.google.com/uc?id={file.get('id')}&export=download"
-                    msg += f"📄 <code>{file.get('name')}<br>({get_readable_file_size(int(file.get('size', 0)))})</code><br>"
+                    msg += f"📄| <code>{file.get('name')}<br>({get_readable_file_size(int(file.get('size', 0)))})</code><br>"
                     furl = short_url(furl)
                     if not DISABLE_DRIVE_LINK:
                         msg += f"<b><a href={furl}>Drive Link</a></b>"
