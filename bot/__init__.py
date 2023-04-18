@@ -561,8 +561,6 @@ except KeyError:
 try:
     HTML = getConfig('HTML')
     HTML = HTML.lower() == 'true'
-    if FORCE_BOT_PM == True:
-        HTML = True
 except KeyError:
     HTML = False
 try:
