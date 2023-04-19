@@ -58,7 +58,7 @@ def start(update, context):
         else:
             sendMessage(f"<b>Hey {tag},\nThis chat is authorised.</b>", context.bot, update.message)
     else:
-        start__ = f"Hey {tag},\nYour can't use me here.\nJoin Us - @Mirror_24x7_Updates ❤️"
+        start__ = f"Hey {tag},\nYour can't use me here.\nJoin Us - @Mirror24x7Updates ❤️"
         sendMessage(start__, context.bot, update.message)
 
 def restart(update, context):

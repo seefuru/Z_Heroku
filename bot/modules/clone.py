@@ -22,9 +22,9 @@ def _clone(message, bot):
     user_id = message.from_user.id
     if user_id != OWNER_ID and user_id not in SUDO_USERS:
             if TOTAL_TASKS_LIMIT == total_task:
-                return sendMessage(f"<b>Total Tasks Limit: {TOTAL_TASKS_LIMIT}\nTasks Running: {total_task}\nTotal task /limits exceed.</b>", bot ,message)
+                return sendMessage(f"<b>Total Tasks Limit: {TOTAL_TASKS_LIMIT}\nTasks Running: {total_task}\nTotal task limit exceed.</b>", bot ,message)
             if USER_TASKS_LIMIT == get_user_task(user_id):
-                return sendMessage(f"<b>Your Tasks Limit: {USER_TASKS_LIMIT} \nYour Tasks Running: {get_user_task(user_id)}\nUser task /limits exceed.</b>", bot ,message) 
+                return sendMessage(f"<b>Your Tasks Limit: {USER_TASKS_LIMIT} \nYour Tasks Running: {get_user_task(user_id)}\nUser task limit exceed.</b>", bot ,message) 
     if message.from_user.username:
         tag = f"@{message.from_user.username}"
     else:

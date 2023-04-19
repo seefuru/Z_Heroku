@@ -150,7 +150,7 @@ def progress_bar(percentage):
 
 def get_readable_message():
     with download_dict_lock:
-        msg = f'<a href="https://t.me/mirror_24x7_updates"><b>24x7 MLTB</b></a>\n\n'
+        msg = f'<a href="https://t.me/Mirror24x7Updates"><b>24x7 MLTB</b></a>\n\n'
         if STATUS_LIMIT is not None:
             tasks = len(download_dict)
             global pages
