@@ -1,7 +1,7 @@
 # Implemented by https://github.com/junedkh
 
 from random import random, choice
-from cfscrape import create_scraper
+from cloudscraper import create_scraper
 from base64 import b64encode
 from urllib.parse import quote, unquote
 from urllib3 import disable_warnings
