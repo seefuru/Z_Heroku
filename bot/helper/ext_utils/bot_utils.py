@@ -216,7 +216,7 @@ def get_readable_message():
                 elif 'M' in spd:
                     up_speed += float(spd.split('M')[0]) * 1048576
         t_task = '' if TOTAL_TASKS_LIMIT == None else f'/{TOTAL_TASKS_LIMIT}'
-        bmsg = f"<b>Tasks:</b> {tasks}{t_task}\n"
+        bmsg = f"<b>Tasks:</b> {len(download_dict)}{t_task}\n"
         bmsg += f"<b>Free</b>: {get_readable_file_size(disk_usage(DOWNLOAD_DIR).free)}"
         bmsg += f" | <b>Since</b>: {get_readable_time(time() - botStartTime)}"
         bmsg += f"\n<b>DL</b>: {get_readable_file_size(dl_speed)}/s | <b>UL</b>: {get_readable_file_size(up_speed)}/s"
