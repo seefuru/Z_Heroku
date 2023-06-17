@@ -75,7 +75,7 @@ class TelegraphHelper:
         return
 
 try:
-    telegraph=TelegraphHelper(f'24x7 MLTB', 'https://t.me/Mirror24x7Updates')
+    telegraph=TelegraphHelper(f'mirrorBD', 'https://t.me/mirrorBD')
 except Exception as err:
     LOGGER.warning(f"Can't Create Telegraph Account: {err}")
     telegraph = None

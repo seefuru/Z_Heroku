@@ -799,7 +799,7 @@ def status():
     }
 @app.route('/')
 def homepage():
-    return "<h1>See 24x7 MLTB <a href='https://github.com/rkshaju8'>@GitHub</a> By <a href='https://t.me/rk_shaju'>@rk_shaju</a></h1>"
+    return "<h1>See mirrorBD.one <a href='https://github.com/seefuru'>@GitHub</a> By <a href='https://t.me/seefuru'>@saionni</a></h1>"
 
 @app.errorhandler(Exception)
 def page_not_found(e):

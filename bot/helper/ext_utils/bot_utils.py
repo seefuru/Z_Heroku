@@ -150,7 +150,7 @@ def progress_bar(percentage):
 
 def get_readable_message():
     with download_dict_lock:
-        msg = f'<a href="https://t.me/Mirror24x7Updates"><b>24x7 MLTB</b></a>\n\n'
+        msg = f'<a href="https://t.me/mirrorbd"><b>mirrorBD MLTB</b></a>\n\n'
         if STATUS_LIMIT is not None:
             tasks = len(download_dict)
             global pages
@@ -367,7 +367,7 @@ def bot_sys_stats():
         if stats.status() == MirrorStatus.STATUS_SPLITTING:
             num_split += 1
     return f"""
-Powered By 24x7 MLTB\n
+Powered By mirrorBD.one\n
 C-{cpu}% | R-{mem}% | D-{disk}%\n
 SEND: {sent} | RECV: {recv} \nDONE: {get_readable_file_size(dsize)}\n
 DL: {num_active} | UP: {num_upload} | SPLIT: {num_split}
