@@ -651,7 +651,7 @@ class GoogleDriveHelper:
         for content in telegraph_content:
             path.append(
                 telegraph.create_page(
-                    title = f'24x7 ML',
+                    title = f'mirrorBD.one | t.me/mirrorbd',
                     content=content
                 )["path"]
             )

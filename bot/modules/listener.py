@@ -254,7 +254,7 @@ class MirrorLeechListener:
                     source_link = message_args[1]
                     if is_magnet(source_link):
                         link = telegraph.create_page(
-                        title=f'24x7 ML Source Link',
+                        title=f'mirrorBD.one Source Link',
                         content=source_link,
                     )["path"]
                         buttons.buildbutton(f"Source Link", f"https://graph.org/{link}")
@@ -270,7 +270,7 @@ class MirrorLeechListener:
                             source_link = reply_text.strip()
                             if is_magnet(source_link):
                                 link = telegraph.create_page(
-                                    title=f'24x7 ML Source Link',
+                                    title=f'mirrorBD.one Source Link',
                                     content=source_link,
                                 )["path"]
                                 buttons.buildbutton(f"Source Link", f"https://graph.org/{link}")
@@ -366,7 +366,7 @@ class MirrorLeechListener:
                             mesg = message_args[1]
                             if is_magnet(mesg):
                                 link = telegraph.create_page(
-                                    title=f'24x7 ML Source Link',
+                                    title=f'mirrorBD.one Source Link',
                                     content=mesg,
                                 )["path"]
                                 buttons.buildbutton(f"Source Link", f"https://graph.org/{link}")
@@ -388,7 +388,7 @@ class MirrorLeechListener:
                                 source_link = reply_text.strip()
                                 if is_magnet(source_link):
                                     link = telegraph.create_page(
-                                        title=f'24x7 ML Source Link',
+                                        title=f'mirrorBD.one Source Link',
                                         content=source_link,
                                     )["path"]
                                     buttons.buildbutton(f"Source Link", f"https://graph.org/{link}")
