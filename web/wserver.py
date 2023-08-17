@@ -230,13 +230,13 @@ function s_validate() {
           src="https://graph.org/file/9a61161ff7d4ab44e9e27.jpg"
           alt="logo"
         />
-        <a href="https://t.me/Mirror24x7Updates">
+        <a href="https://t.me/mirrorbd">
           <h2 class="name">Bittorrent Selection</h2>
         </a>
       </div>
       <div class="social">
         <a href="https://github.com/rkshaju8"><i class="fab fa-github"></i></a>
-        <a href="https://t.me/Mirror24x7Updates"><i class="fab fa-telegram"></i></a>
+        <a href="https://t.me/mirrorbd"><i class="fab fa-telegram"></i></a>
       </div>
     </header>
     <div id="sticks">
@@ -622,13 +622,13 @@ section span{
           src="https://telegra.ph/file/43af672249c94053356c7.jpg"
           alt="logo"
         />
-        <a href="https://t.me/Mirror24x7Updates">
+        <a href="https://t.me/mirrorbd">
           <h2 class="name">Bittorrent Selection</h2>
         </a>
       </div>
       <div class="social">
-        <a href="https://github.com/rkshaju8"><i class="fab fa-github"></i></a>
-        <a href="https://t.me/Mirror24x7Updates"><i class="fab fa-telegram"></i></a>
+        <a href="https://github.com/seefuru"><i class="fab fa-github"></i></a>
+        <a href="https://t.me/mirrorbd"><i class="fab fa-telegram"></i></a>
       </div>
     </header>
     <section>

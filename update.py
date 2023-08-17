@@ -60,7 +60,7 @@ if update.returncode == 0:
     log_info('Successfully updated with latest commit from UPSTREAM_REPO')
     log_info(f'Upstream Repo: UPSTREAM_REPO')
     log_info(f'Upstream Branch: UPSTREAM_BRANCH')
-    log_info('Join Us - @Mirror24x7Updates')
+    log_info('Join Us - @mirrorbd')
 else:
     log_error('Something went wrong while updating, check UPSTREAM_REPO if valid or not!')
     log_info(f'Entered Upstream Repo: {UPSTREAM_REPO}')

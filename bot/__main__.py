@@ -54,11 +54,11 @@ def start(update, context):
         tag = message.from_user.mention_html(message.from_user.first_name)
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         if update.message.chat.type == "private":
-            sendMessage(f"<b>Congratulations, {tag}\nAm All Yours.</b>", context.bot, update.message)
+            sendMessage(f"<b>Congratulations, {tag}\nI'm All Yours.</b>", context.bot, update.message)
         else:
             sendMessage(f"<b>Hey {tag},\nThis chat is authorised.</b>", context.bot, update.message)
     else:
-        start__ = f"Hey {tag},\nYour can't use me here.\nJoin Us - @Mirror24x7Updates ❤️"
+        start__ = f"Hey {tag},\nYour can't use me here.\nJoin Us - @mirrorbd"
         sendMessage(start__, context.bot, update.message)
 
 def restart(update, context):
